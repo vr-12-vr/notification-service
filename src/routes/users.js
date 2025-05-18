@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const notificationController = require('../controllers/notificationController');
+const userController = require('../controllers/userController'); // example
 
-// GET /users/:id/notifications
-router.get('/:id/notifications', notificationController.getUserNotifications);
+// Example route with function handler
+router.get('/:id/notifications', userController.getUserNotifications);
 
 module.exports = router;
