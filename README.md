@@ -1,23 +1,68 @@
 # Notification Service
 
 ## Overview
-A simple notification service to send Email, SMS, and in-app notifications using Node.js, Express, MongoDB, and RabbitMQ.
+This is a Node.js-based notification service supporting email, SMS (simulated), and in-app notifications. It uses MongoDB to store notifications and RabbitMQ for messaging (optional).
 
 ## Features
-- Send notifications (email, SMS, in-app)
-- Retrieve user notifications
-- Retry mechanism for failed notifications
-- Queue processing with RabbitMQ
+- Send notifications via Email, SMS (simulation), or In-App.
+- Store notifications in MongoDB.
+- REST API endpoints to create and retrieve notifications.
+
+## Technologies Used
+- Node.js
+- Express.js
+- MongoDB (Atlas)
+- Mongoose
+- Nodemailer (for sending emails)
+- RabbitMQ (message queue, optional)
 
 ## Setup Instructions
 
 ### Prerequisites
-- Node.js installed (v14+ recommended)
-- MongoDB running locally or remotely
-- RabbitMQ running (optional, for queue processing)
-- Git installed
+- Node.js and npm installed
+- MongoDB Atlas account with a cluster
+- Gmail account with app password for email notifications
+- RabbitMQ installed locally or accessible via URI (optional)
+
+### Environment Variables
+Create a `.env` file in the root directory of the project with the following content (replace placeholders with your actual values):
+
 
 ### Installation
-1. Clone the repository
+1. Clone the repository:
+2. Install dependencies:
+3. Start the server (development mode):
+
+
+
+The server should start on `http://localhost:5000`.
+
+### API Endpoints
+
+**Send Notification:**
+
+# Notification Service
+
+## API Endpoints
+
+### POST /notifications
+Send a notification.
+
+**Request Body:**
+
+```json
+{
+  "userId": "12345",
+  "type": "email",
+  "message": "Hello! This is a test notification.",
+  "email": "recipient@example.com"  // required if type is email
+}
+
+
+### GET /users/:id/notifications
+Get all notifications for a specific user.
+
+**Request Example:**
+
 ```bash
-git clone https://github.com/vr-12-vr/notification-service.git
+GET /users/12345/notifications
